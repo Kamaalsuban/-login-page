@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Login Page</title>
+
+    <style>
+        body {
+            background-color: #e6e6e6;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            width: 320px;
+            background-color: white;
+            margin: 120px auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #999;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+
+        <form onsubmit="return loginCheck()">
+            <label>Username</label>
+            <input type="text" id="username" placeholder="Enter Username">
+
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter Password">
+
+            <button type="submit">Login</button>
+
+            <p id="msg" class="error"></p>
+        </form>
+    </div>
+
+    <script>
+        function loginCheck() {
+            var user = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+            var msg = document.getElementById("msg");
+
+            if (user === "" || pass === "") {
+                msg.innerHTML = "All fields are required!";
+                return false;
+            }
+
+            if (user === "admin" && pass === "1234") {
+                alert("Login Successful!");
+                return true;
+            } else {
+                msg.innerHTML = "Invalid Username or Password";
+                return false;
+            }
+        }
+    </script>
+
+</body>
+</html>
